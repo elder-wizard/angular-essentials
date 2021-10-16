@@ -1,7 +1,27 @@
 <h1>
-  {{title}}
+  {{ title }}
 </h1>
 
 <app-aside></app-aside>
 
 <app-new></app-new>
+<hr>
+{{ 'Hello '+'Vlad!' }}
+<br>
+{{ number }}
+<br>
+{{ number + 2 }} 
+<br>
+{{ array }}
+<br>
+{{ object }} 
+<br>
+<code>{{"{{object}}"}}--not works, only {{"{{object.a}}"}}:</code>
+<br>
+{{ object.a }}
+<br>
+<ul>
+  <ul>
+    <li *ngFor="let user of users">{{ user.name }}</li>
+  </ul>
+</ul>
