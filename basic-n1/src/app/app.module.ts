@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ import { NewComponent } from './new/new.component';
     NewComponent // auto registering CLI ng g c new
   ],
   imports: [
-    BrowserModule 
+    BrowserModule,
+    FormsModule //Two way binding module [ndModel]
   ],
   providers: [],
   bootstrap: [AppComponent] // launch AppComponent

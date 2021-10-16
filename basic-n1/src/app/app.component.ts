@@ -6,14 +6,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'] // styles
 })
 export class AppComponent {
+
   title = 'Getting started with Angular'; 
-  number = 20; 
-  array = [1,2,"3"]; 
+  class = 'main';
 
-  object = {
-    a: 'a', 
-    b:{c:2}
-  }; 
+  inputValue = '';
+  clickValue = '';
 
-  users = [{name: 'Vlad'}, {name: 'Rita'}];
+  badge = 'initial value';
+
+  constructor() {
+    setTimeout(() => {
+      this.title = 'Second slogan binded';
+      this.class = 'secondary';
+    }, 5000);
+
+  }
+
+  // onInput(e: KeyboardEvent) {
+  //   this.inputValue = (<HTMLInputElement>e.target).value;
+  // }
+
+  onInput(e: any) {
+    this.inputValue = (<HTMLInputElement>e.target).value;
+  }
+
+  onIn(e: any) {
+    this.badge = e.target.value;
+  }
+
+  onClick(e?: MouseEvent) {
+    this.clickValue = 'Inserted!';
+  }
+
+  onBlur(str: string) {
+    this.inputValue = str;
+  }
 }

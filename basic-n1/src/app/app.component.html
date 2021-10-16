@@ -1,4 +1,5 @@
-<h1>
+<!-- one way binding -->
+<h1 [class]="class"> 
   {{ title }}
 </h1>
 
@@ -6,22 +7,33 @@
 
 <app-new></app-new>
 <hr>
-{{ 'Hello '+'Vlad!' }}
+
+<!-- input with local variable myInput -->
+<input
+  type="text"
+  (keyup.enter)="onInput($event)"
+  (blur)="onBlur(myInput.value)"
+  #myInput
+>
+
+
 <br>
-{{ number }}
-<br>
-{{ number + 2 }} 
-<br>
-{{ array }}
-<br>
-{{ object }} 
-<br>
-<code>{{"{{object}}"}}--not works, only {{"{{object.a}}"}}:</code>
-<br>
-{{ object.a }}
-<br>
-<ul>
-  <ul>
-    <li *ngFor="let user of users">{{ user.name }}</li>
-  </ul>
-</ul>
+<button (click)="onClick()">CLICK EVENT</button>
+<pre>
+  {{inputValue}}
+  <br>
+  {{clickValue}}
+</pre>
+
+<!-- two way binding/required FormsModule import  -->
+<hr>
+<input type="text" [(ngModel)]="badge">
+<p>{{badge}}</p> 
+<!-- same as 
+<hr>
+<input type="text" [value]="badge" (input)="onInput2($event)">
+<p>{{badge}}</p> 
+-->
+
+
+  
