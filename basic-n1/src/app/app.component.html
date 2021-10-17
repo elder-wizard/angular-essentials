@@ -1,46 +1,7 @@
-<div [ngSwitch]="toggleTag" class="container d-flex mt-2">
+<div class="container pt-5">
 
-  <div *ngSwitchCase="true" class="col-6 p-0">
-    <!-- ngStyle directive -->
-    <h3>Square 1</h3>
-    <div  [ngStyle]="{
-      'width': '25vw',
-      'height': '25vw',
-      'border': '1px solid gray',
-      'borderRadius': '.25rem',
-      'transition': 'all .3s',
-      'background': toggleStyle ? 'purple' : 'white'
-    }">
-    </div>
-
-    <button class="btn btn-dark mt-2" (click)="toggleStyle = !toggleStyle"  >{{toggleStyle ? 'make white' : 'make purple'}}</button>
-  </div>
-
-  <div *ngSwitchCase="false" class="col-6 p-0">
-    <!-- ngStyle + ngClass directives -->
-    <h3>Square 2</h3>
-    <div [ngStyle]="{
-      'width': '25vw',
-      'height': '25vw',
-      'border': '1px solid gray',
-      'borderRadius': '.25rem',
-      'transition': 'all .3s'
-    }"
-      [ngClass]="{
-        bg: toggleClass
-      }">
-    </div>
-
-    <button class="btn btn-dark mt-2" (click)="toggleClass = !toggleClass"  >{{toggleClass ? 'clean bg' : 'make bg' }}</button>
-  </div>
-
-  <p *ngSwitchDefault>lorem pipsum</p>
-
-  <hr>
-</div>
-<div class="container mt-2">
-
-  <button (click)="toggleTag = !toggleTag" class="btn btn-light">Toggle tags</button>
+  <h4>{{ now }}</h4>
+  <h4>{{ now | date }}</h4>
+  <h4>{{ 55 | currency:'EUR' }}</h4>
 
 </div>
-  
