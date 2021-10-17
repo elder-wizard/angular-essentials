@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  toggleStyle = false;
-  toggleClass = false;
+  toggleStyle: boolean = false;
+  toggleClass: boolean = false;
+  toggleTag: boolean = false;
 
   constructor() {
     // setTimeout(() => {

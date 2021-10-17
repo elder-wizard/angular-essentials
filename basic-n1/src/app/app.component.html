@@ -1,34 +1,46 @@
-<div class="container">
+<div class="container d-flex mt-2">
 
-<!-- ngStyle directive -->
-  <div [ngStyle]="{
-    'width': '25vw',
-    'height': '25vw',
-    'border': '1px solid gray',
-    'borderRadius': '.25rem',
-    'transition': 'all .3s',
-    'background': toggleStyle ? 'purple' : 'white'
-  }">
-  </div>
-  <button class="btn btn-dark mt-2" (click)="toggleStyle = !toggleStyle"  >{{toggleStyle ? 'make white' : 'make purple'}}</button>
-
-
-  <div [ngStyle]="{
-    'width': '25vw',
-    'height': '25vw',
-    'border': '1px solid gray',
-    'borderRadius': '.25rem',
-    'transition': 'all .3s'
-  }"
-    [ngClass]="{
-      bg: toggleClass
+  <div *ngIf="toggleTag; else hideDiv" class="col-6 p-0">
+    <!-- ngStyle directive -->
+    <h3>Square 1</h3>
+    <div  [ngStyle]="{
+      'width': '25vw',
+      'height': '25vw',
+      'border': '1px solid gray',
+      'borderRadius': '.25rem',
+      'transition': 'all .3s',
+      'background': toggleStyle ? 'purple' : 'white'
     }">
+    </div>
+
+    <button class="btn btn-dark mt-2" (click)="toggleStyle = !toggleStyle"  >{{toggleStyle ? 'make white' : 'make purple'}}</button>
   </div>
 
-  <button class="btn btn-dark mt-2" (click)="toggleClass = !toggleClass"  >{{toggleClass ? 'clean bg' : 'make bg' }}</button>
+  <ng-template #hideDiv>
+    <div class="col-6 p-0">
+      <!-- ngStyle + ngClass directives -->
+      <h3>Square 2</h3>
+      <div [ngStyle]="{
+        'width': '25vw',
+        'height': '25vw',
+        'border': '1px solid gray',
+        'borderRadius': '.25rem',
+        'transition': 'all .3s'
+      }"
+        [ngClass]="{
+          bg: toggleClass
+        }">
+      </div>
+  
+      <button class="btn btn-dark mt-2" (click)="toggleClass = !toggleClass"  >{{toggleClass ? 'clean bg' : 'make bg' }}</button>
+    </div>
 
+  </ng-template>
+  <hr>
+</div>
+<div class="container mt-2">
 
-
+  <button (click)="toggleTag = !toggleTag" class="btn btn-light">Toggle tags</button>
 
 </div>
   
