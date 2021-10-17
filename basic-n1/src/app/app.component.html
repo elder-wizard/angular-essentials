@@ -1,39 +1,34 @@
-<!-- one way binding -->
-<h1 [class]="class"> 
-  {{ title }}
-</h1>
+<div class="container">
 
-<app-aside></app-aside>
-
-<app-new></app-new>
-<hr>
-
-<!-- input with local variable myInput -->
-<input
-  type="text"
-  (keyup.enter)="onInput($event)"
-  (blur)="onBlur(myInput.value)"
-  #myInput
->
+<!-- ngStyle directive -->
+  <div [ngStyle]="{
+    'width': '25vw',
+    'height': '25vw',
+    'border': '1px solid gray',
+    'borderRadius': '.25rem',
+    'transition': 'all .3s',
+    'background': toggleStyle ? 'purple' : 'white'
+  }">
+  </div>
+  <button class="btn btn-dark mt-2" (click)="toggleStyle = !toggleStyle"  >{{toggleStyle ? 'make white' : 'make purple'}}</button>
 
 
-<br>
-<button (click)="onClick()">CLICK EVENT</button>
-<pre>
-  {{inputValue}}
-  <br>
-  {{clickValue}}
-</pre>
+  <div [ngStyle]="{
+    'width': '25vw',
+    'height': '25vw',
+    'border': '1px solid gray',
+    'borderRadius': '.25rem',
+    'transition': 'all .3s'
+  }"
+    [ngClass]="{
+      bg: toggleClass
+    }">
+  </div>
 
-<!-- two way binding/required FormsModule import  -->
-<hr>
-<input type="text" [(ngModel)]="badge">
-<p>{{badge}}</p> 
-<!-- same as 
-<hr>
-<input type="text" [value]="badge" (input)="onInput2($event)">
-<p>{{badge}}</p> 
--->
+  <button class="btn btn-dark mt-2" (click)="toggleClass = !toggleClass"  >{{toggleClass ? 'clean bg' : 'make bg' }}</button>
 
 
+
+
+</div>
   

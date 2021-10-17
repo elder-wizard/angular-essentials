@@ -3,20 +3,18 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AsideComponent } from './aside/aside.component';
-import { NewComponent } from './new/new.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [ 
-    AppComponent, // registering AppComponent
-    AsideComponent, // registering AsideComponent
-    NewComponent // auto registering CLI ng g c new
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule //Two way binding module [ndModel]
+    FormsModule,
+    NgbModule 
   ],
   providers: [],
-  bootstrap: [AppComponent] // launch AppComponent
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
