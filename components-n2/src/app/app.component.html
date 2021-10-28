@@ -1,0 +1,8 @@
+<app-post-form
+  (onAdd)="addPost($event)"
+></app-post-form>
+
+<app-post
+  *ngFor="let p of posts"
+  [post]="p"
+></app-post>
